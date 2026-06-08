@@ -36,6 +36,8 @@
 - Zero context switching required from the user
 - Go fix failing CI tests without being told how
 
+### 7. Use `mypy` for static checking
+
 ## Task Management
 
 1. **Plan First**: Write plan to `tasks/todo.md` with checkable items
@@ -53,6 +55,8 @@
 
 ## Code style
 
+- **DRY**: This is the ULTIMATE PRINCIPLE of this project.
+- **SOLID**: Strictly ensure that everything is SOLID in design.
 - **80 char rule**: Follow this rule strictly. It is allowed to bypass this rule
 if the overflow is not large, e.g. 84 chars on a line in total.
 - **Type hinting**: Follow `PEP 484` styled type hinting.
