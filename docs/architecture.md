@@ -59,9 +59,6 @@ matplotlib
 human-eval
 ```
 
-Install: `pip install -r requirements.txt`
-HumanEval scorer: `pip install human-eval`
-
 ---
 
 ## Full Pipeline (run top to bottom)
