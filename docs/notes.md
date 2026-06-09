@@ -1,6 +1,26 @@
-# Literature
+# Paper guide
+## Introduction
+## Theory (Literature Review)
 
-1. [LoRA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS](https://arxiv.org/pdf/2106.09685)
+1. [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+Focus: `decoder-only`
+
+Cite as:
+```
+@misc{vaswani2023attentionneed,
+      title={Attention Is All You Need}, 
+      author={Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin},
+      year={2023},
+      eprint={1706.03762},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/1706.03762}, 
+}
+```
+
+2. [LoRA](https://arxiv.org/pdf/2106.09685)
+
+Focus: `low-rank decomposition`, `rank r`, `lora_alpha`, `target modules`, `zero inference latency nakon merge-a`
 
 Cite as:
 ```
@@ -15,14 +35,121 @@ Cite as:
 }
 ```
 
-2. [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
+3. [QLoRA](https://arxiv.org/abs/2305.14314)
+
+Focus: `4-bit NF4`, `zašto možeš trenirati na consumer GPU`
 
 Cite as:
 ```
-@inproceedings{kwon2023efficient,
-  title={Efficient Memory Management for Large Language Model Serving with PagedAttention},
-  author={Woosuk Kwon and Zhuohan Li and Siyuan Zhuang and Ying Sheng and Lianmin Zheng and Cody Hao Yu and Joseph E. Gonzalez and Hao Zhang and Ion Stoica},
-  booktitle={Proceedings of the ACM SIGOPS 29th Symposium on Operating Systems Principles},
-  year={2023}
+@misc{dettmers2023qloraefficientfinetuningquantized,
+      title={QLoRA: Efficient Finetuning of Quantized LLMs}, 
+      author={Tim Dettmers and Artidoro Pagnoni and Ari Holtzman and Luke Zettlemoyer},
+      year={2023},
+      eprint={2305.14314},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2305.14314}, 
+}
+```
+
+4. [PEFT](https://arxiv.org/pdf/2308.10462)
+
+Focus: `LoRA improvements for code generation`, `pass@1`
+
+Cite as:
+```
+@misc{weyssow2024exploringparameterefficientfinetuningtechniques,
+      title={Exploring Parameter-Efficient Fine-Tuning Techniques for Code Generation with Large Language Models}, 
+      author={Martin Weyssow and Xin Zhou and Kisub Kim and David Lo and Houari Sahraoui},
+      year={2024},
+      eprint={2308.10462},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2308.10462}, 
+}
+```
+
+5. [PEFT survey](https://arxiv.org/abs/2403.14608)
+
+Focus: `LoRA within broader PEFT family`
+
+Cite as:
+```
+@misc{han2024parameterefficientfinetuninglargemodels,
+      title={Parameter-Efficient Fine-Tuning for Large Models: A Comprehensive Survey}, 
+      author={Zeyu Han and Chao Gao and Jinyang Liu and Jeff Zhang and Sai Qian Zhang},
+      year={2024},
+      eprint={2403.14608},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2403.14608}, 
+}
+```
+
+6. [Qwen2.5-Coder Technical Report](https://arxiv.org/abs/2409.12186)
+
+Focus: `current state of the model we are fine tuning`, `1.5B`
+
+Cite as:
+```
+@misc{hui2024qwen25codertechnicalreport,
+      title={Qwen2.5-Coder Technical Report}, 
+      author={Binyuan Hui and Jian Yang and Zeyu Cui and Jiaxi Yang and Dayiheng Liu and Lei Zhang and Tianyu Liu and Jiajun Zhang and Bowen Yu and Keming Lu and Kai Dang and Yang Fan and Yichang Zhang and An Yang and Rui Men and Fei Huang and Bo Zheng and Yibo Miao and Shanghaoran Quan and Yunlong Feng and Xingzhang Ren and Xuancheng Ren and Jingren Zhou and Junyang Lin},
+      year={2024},
+      eprint={2409.12186},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2409.12186}, 
+}
+```
+
+7. [CodeSearchNet](https://arxiv.org/abs/1909.09436)
+
+Focus: `characteristics of the dataset`
+
+Cite as:
+```
+@misc{husain2020codesearchnetchallengeevaluatingstate,
+      title={CodeSearchNet Challenge: Evaluating the State of Semantic Code Search}, 
+      author={Hamel Husain and Ho-Hsiang Wu and Tiferet Gazit and Miltiadis Allamanis and Marc Brockschmidt},
+      year={2020},
+      eprint={1909.09436},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/1909.09436}, 
+}
+```
+
+8. [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)
+
+Focus: `LLM evaluation`
+
+Cite as:
+```
+@misc{chen2021evaluatinglargelanguagemodels,
+      title={Evaluating Large Language Models Trained on Code}, 
+      author={Mark Chen and Jerry Tworek and Heewoo Jun and Qiming Yuan and Henrique Ponde de Oliveira Pinto and Jared Kaplan and Harri Edwards and Yuri Burda and Nicholas Joseph and Greg Brockman and Alex Ray and Raul Puri and Gretchen Krueger and Michael Petrov and Heidy Khlaaf and Girish Sastry and Pamela Mishkin and Brooke Chan and Scott Gray and Nick Ryder and Mikhail Pavlov and Alethea Power and Lukasz Kaiser and Mohammad Bavarian and Clemens Winter and Philippe Tillet and Felipe Petroski Such and Dave Cummings and Matthias Plappert and Fotios Chantzis and Elizabeth Barnes and Ariel Herbert-Voss and William Hebgen Guss and Alex Nichol and Alex Paino and Nikolas Tezak and Jie Tang and Igor Babuschkin and Suchir Balaji and Shantanu Jain and William Saunders and Christopher Hesse and Andrew N. Carr and Jan Leike and Josh Achiam and Vedant Misra and Evan Morikawa and Alec Radford and Matthew Knight and Miles Brundage and Mira Murati and Katie Mayer and Peter Welinder and Bob McGrew and Dario Amodei and Sam McCandlish and Ilya Sutskever and Wojciech Zaremba},
+      year={2021},
+      eprint={2107.03374},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2107.03374}, 
+}
+```
+
+9. [A Unified Evaluation of llama.cpp Quantization on Llama-3.1-8B-Instruct](https://arxiv.org/abs/2601.14277)
+
+Focus: `GGUF`
+
+Cite as:
+```
+@misc{kurt2026quantizationiuseunified,
+      title={Which Quantization Should I Use? A Unified Evaluation of llama.cpp Quantization on Llama-3.1-8B-Instruct}, 
+      author={Uygar Kurt},
+      year={2026},
+      eprint={2601.14277},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2601.14277}, 
 }
 ```
