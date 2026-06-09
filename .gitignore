@@ -219,5 +219,10 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Project-specific
+*.gguf
+merged/
+adapters/
+
 # Additional
 tasks
