@@ -8,6 +8,7 @@ from pipeline._stages import (
     NearDedupStage,
 )
 from pipeline._types import CodeSample, PipelineConfig
+from pipeline._constants import TRAINING_SAMPLE_SIZE
 
 __all__ = [
     "CodeSample",
@@ -19,4 +20,5 @@ __all__ = [
     "Pipeline",
     "PipelineConfig",
     "PipelineStage",
+    "TRAINING_SAMPLE_SIZE",
 ]

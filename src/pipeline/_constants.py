@@ -1,3 +1,5 @@
 FIM_PREFIX = "<|fim_prefix|>"
 FIM_SUFFIX = "<|fim_suffix|>"
 FIM_MIDDLE = "<|fim_middle|>"
+
+TRAINING_SAMPLE_SIZE = 50_000

@@ -22,6 +22,7 @@ from pipeline import (
     NearDedupStage,
     Pipeline,
     PipelineConfig,
+    TRAINING_SAMPLE_SIZE,
 )
 
 
@@ -30,7 +31,7 @@ def main() -> None:
     warnings.filterwarnings("ignore", category=SyntaxWarning)
     logger.info("Starting data preparation pipeline...")
     # setup_logging()
-    for lang, n in [("python", 10000), ("go", 10000)]:
+    for lang in ["python", "go"]:
         ds = load_dataset("claudios/code_search_net", lang, split="train")
         raw = [
             CodeSample(
@@ -39,7 +40,7 @@ def main() -> None:
                 func_name=ds[i]["func_name"],
                 text="",
             )
-            for i in range(min(n, len(ds)))
+            for i in range(min(TRAINING_SAMPLE_SIZE, len(ds)))
         ]
         config = PipelineConfig()
         tokenizer = AutoTokenizer.from_pretrained(config.model_name)
