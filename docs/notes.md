@@ -200,3 +200,7 @@ Cite as:
 - `Docstring quality filtering`
 - `Manage Token Lengths`
 - `Diversify Completion Granularity`
+
+## Results
+
+- Mention amount of data filtered out in data preparation and why
