@@ -153,3 +153,50 @@ Cite as:
       url={https://arxiv.org/abs/2601.14277}, 
 }
 ```
+
+10. [Efficient Training of Language Models to Fill in the Middle](https://arxiv.org/abs/2207.14255)
+
+Focus: use this as help
+[Fine-Tuning Language Models with Fill-in-the-Middle: A Comprehensive Guide](https://blog.gopenai.com/fine-tuning-language-models-with-fill-in-the-middle-a-comprehensive-guide-58a022b8f8df)
+
+Cite as:
+```
+@misc{bavarian2022efficienttraininglanguagemodels,
+      title={Efficient Training of Language Models to Fill in the Middle},
+      author={Mohammad Bavarian and Heewoo Jun and Nikolas Tezak and John Schulman and Christine McLeavey and Jerry Tworek and Mark Chen},
+      year={2022},
+      eprint={2207.14255},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2207.14255},
+}
+```
+
+11. [Clean Code, Better Models](https://arxiv.org/pdf/2508.11958)
+
+Focus: `a short mention of every technique`
+
+Cite as:
+```
+@misc{xue2025cleancodebettermodels,
+      title={Clean Code, Better Models: Enhancing LLM Performance with Smell-Cleaned Dataset},
+      author={Zhipeng Xue and Xiaoting Zhang and Zhipeng Gao and Xing Hu and Shan Gao and Xin Xia and Shanping Li},
+      year={2025},
+      eprint={2508.11958},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2508.11958},
+}
+```
+
+## Methodology
+
+### Data preparation
+
+- `JSONL`
+- `Fill in the middle` mentioned in theory
+- [`Deduplication`](https://ai.meta.com/blog/how-to-fine-tune-llms-peft-dataset-curation)
+- `Code smells` mentioned in theory: `Clean Code, Better Models`
+- `Docstring quality filtering`
+- `Manage Token Lengths`
+- `Diversify Completion Granularity`
