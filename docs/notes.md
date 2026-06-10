@@ -120,20 +120,20 @@ Cite as:
 }
 ```
 
-8. [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)
+8. [HumanEval-XL](https://arxiv.org/abs/2402.16694)
 
-Focus: `LLM evaluation`
+Focus: `HumanEval`, `pass@k`
 
 Cite as:
 ```
-@misc{chen2021evaluatinglargelanguagemodels,
-      title={Evaluating Large Language Models Trained on Code}, 
-      author={Mark Chen and Jerry Tworek and Heewoo Jun and Qiming Yuan and Henrique Ponde de Oliveira Pinto and Jared Kaplan and Harri Edwards and Yuri Burda and Nicholas Joseph and Greg Brockman and Alex Ray and Raul Puri and Gretchen Krueger and Michael Petrov and Heidy Khlaaf and Girish Sastry and Pamela Mishkin and Brooke Chan and Scott Gray and Nick Ryder and Mikhail Pavlov and Alethea Power and Lukasz Kaiser and Mohammad Bavarian and Clemens Winter and Philippe Tillet and Felipe Petroski Such and Dave Cummings and Matthias Plappert and Fotios Chantzis and Elizabeth Barnes and Ariel Herbert-Voss and William Hebgen Guss and Alex Nichol and Alex Paino and Nikolas Tezak and Jie Tang and Igor Babuschkin and Suchir Balaji and Shantanu Jain and William Saunders and Christopher Hesse and Andrew N. Carr and Jan Leike and Josh Achiam and Vedant Misra and Evan Morikawa and Alec Radford and Matthew Knight and Miles Brundage and Mira Murati and Katie Mayer and Peter Welinder and Bob McGrew and Dario Amodei and Sam McCandlish and Ilya Sutskever and Wojciech Zaremba},
-      year={2021},
-      eprint={2107.03374},
+@misc{peng2024humanevalxlmultilingualcodegeneration,
+      title={HumanEval-XL: A Multilingual Code Generation Benchmark for Cross-lingual Natural Language Generalization}, 
+      author={Qiwei Peng and Yekun Chai and Xuhong Li},
+      year={2024},
+      eprint={2402.16694},
       archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2107.03374}, 
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2402.16694}, 
 }
 ```
 
@@ -200,6 +200,10 @@ Cite as:
 - `Docstring quality filtering`
 - `Manage Token Lengths`
 - `Diversify Completion Granularity`
+
+### Base model eval
+
+- [Benchmark](https://huggingface.co/datasets/floatai/HumanEval-XL)
 
 ## Results
 
