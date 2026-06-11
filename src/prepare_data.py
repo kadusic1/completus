@@ -13,7 +13,7 @@ from datasets import load_dataset
 from loguru import logger
 from transformers import AutoTokenizer
 
-from pipeline import (
+from data_pipeline import (
     CodeSample,
     CodeSmellFilter,
     DocstringFilter,

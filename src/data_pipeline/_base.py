@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from pipeline._types import CodeSample, PipelineConfig
+from data_pipeline._types import CodeSample, PipelineConfig
 
 
 class PipelineStage(ABC):

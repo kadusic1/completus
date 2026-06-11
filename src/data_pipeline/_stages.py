@@ -4,10 +4,10 @@ import random
 from datasketch import MinHashLSH
 from transformers import PreTrainedTokenizerBase
 
-from pipeline._base import PipelineStage
-from pipeline._constants import FIM_MIDDLE, FIM_PREFIX, FIM_SUFFIX
-from pipeline._types import CodeSample, PipelineConfig
-from pipeline._utily import minhash, normalize_indent, shingle
+from data_pipeline._base import PipelineStage
+from data_pipeline._constants import FIM_MIDDLE, FIM_PREFIX, FIM_SUFFIX
+from data_pipeline._types import CodeSample, PipelineConfig
+from data_pipeline._utily import minhash, normalize_indent, shingle
 
 
 class NearDedupStage(PipelineStage):

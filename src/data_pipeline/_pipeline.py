@@ -1,5 +1,5 @@
-from pipeline._base import PipelineStage
-from pipeline._types import CodeSample, PipelineConfig
+from data_pipeline._base import PipelineStage
+from data_pipeline._types import CodeSample, PipelineConfig
 
 
 class Pipeline:
