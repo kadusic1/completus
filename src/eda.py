@@ -62,10 +62,34 @@ _IMPORT_PATTERNS: dict[str, list[str]] = {
 }
 
 _GO_STDLIB = {
-    "fmt", "os", "io", "strings", "strconv", "errors", "bytes",
-    "bufio", "math", "sort", "sync", "time", "log", "net", "http",
-    "path", "filepath", "context", "reflect", "regexp", "unicode",
-    "encoding", "json", "xml", "csv", "flag", "testing", "runtime",
+    "fmt",
+    "os",
+    "io",
+    "strings",
+    "strconv",
+    "errors",
+    "bytes",
+    "bufio",
+    "math",
+    "sort",
+    "sync",
+    "time",
+    "log",
+    "net",
+    "http",
+    "path",
+    "filepath",
+    "context",
+    "reflect",
+    "regexp",
+    "unicode",
+    "encoding",
+    "json",
+    "xml",
+    "csv",
+    "flag",
+    "testing",
+    "runtime",
 }
 
 
@@ -123,16 +147,16 @@ def _plot_and_save(
 
     fig, axes = plt.subplots(1, 3, figsize=(15, 4))
 
+    axes[0].hist(lengths_raw, bins=50, range=HIST_RANGE, color=RAW_COLOR, label="raw")
     axes[0].hist(
-        lengths_raw, bins=50, range=HIST_RANGE, color=RAW_COLOR, label="raw"
+        lengths_clean,
+        bins=50,
+        range=HIST_RANGE,
+        color=CLEAN_COLOR,
+        label="clean",
+        alpha=0.7,
     )
-    axes[0].hist(
-        lengths_clean, bins=50, range=HIST_RANGE, color=CLEAN_COLOR,
-        label="clean", alpha=0.7,
-    )
-    axes[0].axvline(
-        2048, color="red", linestyle="--", label="2048 token cutoff"
-    )
+    axes[0].axvline(2048, color="red", linestyle="--", label="2048 token cutoff")
     axes[0].set_title(f"{lang} - token lengths")
     axes[0].legend()
 
@@ -173,9 +197,7 @@ def main() -> None:
     rows: list[tuple[str, int, int]] = []
 
     for lang in LANGUAGES:
-        raw = load_dataset(
-            "claudios/code_search_net", lang, split="train"
-        )
+        raw = load_dataset("claudios/code_search_net", lang, split="train")
         clean = raw.filter(valid)
 
         rows.append((lang, len(raw), len(clean)))
