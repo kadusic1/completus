@@ -9,8 +9,11 @@ from human_eval.evaluation import evaluate_functional_correctness
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from loguru import logger
 
+from eval._compat import apply_windows_patches
 from eval._config import BaselineConfig
 from eval._generator import generate_all
+
+apply_windows_patches()
 
 
 class BaselineEvaluator:
