@@ -1,0 +1,17 @@
+FROM ../gguf/go_coder.gguf
+
+TEMPLATE """{{- if .Suffix }}<|fim_prefix|>{{ .Prompt }}<|fim_suffix|>{{ .Suffix }}<|fim_middle|>{{- else }}{{ .Prompt }}{{- end }}"""
+
+PARAMETER temperature 0.0
+PARAMETER top_p 0.9
+PARAMETER top_k 20
+PARAMETER repeat_penalty 1.0
+PARAMETER num_ctx 2048
+PARAMETER num_predict 256
+
+PARAMETER stop "<|fim_prefix|>"
+PARAMETER stop "<|fim_middle|>"
+PARAMETER stop "<|fim_suffix|>"
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
