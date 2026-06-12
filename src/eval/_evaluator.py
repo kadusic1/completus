@@ -112,7 +112,7 @@ class BaselineEvaluator:
         """
         path = Path(self._cfg.results_dir)
         path.mkdir(parents=True, exist_ok=True)
-        out = path / "pass_at_k.json"
+        out = path / self._cfg.results_file
         with open(out, "w") as f:
             json.dump(results, f, indent=2)
         logger.info("Results saved to {}", out)
