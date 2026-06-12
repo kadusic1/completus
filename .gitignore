@@ -227,3 +227,4 @@ adapters/
 # Additional
 tasks
 unsloth_compiled_cache
+gguf
