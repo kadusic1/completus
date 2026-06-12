@@ -24,4 +24,5 @@ class BaselineConfig:
     num_samples: int = 1
     batch_size: int = 16
     results_dir: str = "data/eval/results"
+    results_file: str = "pass_at_k.json"
     samples_file: str = "data/eval/samples.jsonl"
