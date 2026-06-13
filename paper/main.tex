@@ -1,0 +1,123 @@
+% IHCONCS Conference Template — Single-column LaTeX adaptation
+% Authors: Nejra Smajlovic, Adi Kadusic
+%
+% Template specs (from DOCX XML):
+%   Page:    US Letter 612pt x 792pt
+%   Margins: Top 70.90pt, Right 56.70pt, Bottom 70.90pt, Left 70.90pt
+%   Font:    Times New Roman 12pt
+%   Layout:  Single-column body, two-column authors
+
+\documentclass[12pt,letterpaper]{article}
+
+% --- Page geometry (matches IHCONCS DOCX margins exactly) ---
+\usepackage[
+  letterpaper,
+  top=70.90pt,
+  bottom=70.90pt,
+  left=70.90pt,
+  right=56.70pt
+]{geometry}
+
+\usepackage{times}           % Times New Roman
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{microtype}
+\usepackage{multicol}        % two-column author block
+\usepackage{titlesec}        % custom heading styles
+\usepackage{abstract}        % abstract formatting
+\usepackage{caption}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+
+% --- Line spacing (11.4pt for 12pt body, approx single) ---
+\setstretch{0.95}
+
+% --- Section heading styles (IHCONCS uses numbered uppercase H1) ---
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries\MakeUppercase}
+  {\Roman{section}.}{0.5em}{}
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\titleformat{\subsection}
+  {\normalfont\normalsize\itshape}
+  {\arabic{subsection}.}{0.5em}{}
+\titlespacing{\subsection}{0pt}{5pt}{5pt}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}
+  {\arabic{subsection}.\arabic{subsubsection})}{0.5em}{}
+\titlespacing{\subsubsection}{14.4pt}{2pt}{2pt}
+
+% --- Abstract style (italic "Abstract—" run-in head) ---
+\renewenvironment{abstract}{%
+  \noindent\textit{Abstract}---\ignorespaces
+}{\par\medskip}
+
+% --- Caption style (8pt Times) ---
+\captionsetup{font=small, labelfont=bf, labelsep=period}
+
+% --- Code listings ---
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  language=Python,
+  xleftmargin=14.4pt,
+}
+
+% --- No page numbers (conference proceedings) ---
+\pagestyle{empty}
+
+% --- Paragraph indent (14.4pt as in template) ---
+\setlength{\parindent}{14.4pt}
+\setlength{\parskip}{0pt}
+
+% ================================================================
+\begin{document}
+% ================================================================
+
+% ---- TITLE ----
+\begin{center}
+  {\Large\bfseries
+    Completus: Consumer-GPU QLoRA Fine-Tuning of a 1.5B\\[2pt]
+    Code Model for Local Autocompletion
+  }
+  \vspace{18pt}
+
+  % ---- AUTHORS (two-column block) ----
+  \begin{multicols}{2}
+    \centering
+    {\normalsize Nejra Smajlovi\'{c}}\\[2pt]
+    \textit{Polytechnic Faculty}\\
+    \textit{University of Zenica}\\
+    Zenica, Bosnia and Herzegovina\\
+    \texttt{nejra.smajlovic.22@size.ba}
+
+    \columnbreak
+
+    {\normalsize Adi Kadu\v{s}i\'{c}}\\[2pt]
+    \textit{Polytechnic Faculty}\\
+    \textit{University of Zenica}\\
+    Zenica, Bosnia and Herzegovina\\
+    \texttt{adi.kadusic.22@size.ba}
+  \end{multicols}
+\end{center}
+
+\vspace{6pt}
+
+\input{abstract}
+\input{introduction}
+\input{related_work}
+\input{methodology}
+\input{results}
+\input{conclusion}
+\input{references}
+
+\end{document}
