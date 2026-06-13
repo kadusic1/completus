@@ -1,0 +1,61 @@
+% ================================================================
+\section{Related Work}
+% ================================================================
+
+\subsection{Open Code Language Models}
+
+Code generation has become a standard benchmark for large language
+models. Building on the decoder-only Transformer~\cite{Vaswani2017Attention},
+a succession of open models has narrowed the gap to proprietary
+systems. StarCoder~\cite{Li2023StarCoder} trains on the permissively
+licensed Stack corpus with multi-query attention and a
+fill-in-the-middle objective. Code Llama~\cite{Roziere2023CodeLlama}
+extends Llama~2 with a long-context fine-tuning stage and infilling
+support. DeepSeek-Coder~\cite{Guo2024DeepSeek} trains on a
+project-level corpus with an infilling objective, achieving
+state-of-the-art results at several scales. Qwen2.5-Coder
+\cite{Hui2024Qwen25} reports leading scores among open models at the
+1.5B parameter scale we adopt.
+
+These efforts target general-purpose, large-scale code generation.
+Completus differs in goal: rather than pretraining a new model, we
+specialise an existing small model for a narrow, latency-sensitive use
+case where size and local runnability matter more than peak benchmark
+performance.
+
+\subsection{Parameter-Efficient Fine-Tuning for Code}
+
+Low-rank adaptation (LoRA)~\cite{Hu2021LoRA} freezes pretrained
+weights and injects trainable rank-decomposition matrices, cutting
+trainable parameters by orders of magnitude. QLoRA~\cite{Dettmers2023QLoRA}
+extends this by quantising the frozen base model to 4-bit NF4, making
+gradient computation feasible on a single consumer GPU. AdaLoRA
+\cite{Zhang2023AdaLoRA} refines rank allocation by assigning capacity
+adaptively according to weight-matrix importance scores.
+
+Closest to our work, Weyssow et al.~\cite{Weyssow2023PEFT} evaluate
+PEFT methods specifically for code generation and confirm that LoRA
+adapters recover most of full fine-tuning quality at a fraction of
+the cost. The comprehensive PEFT survey by Han et
+al.~\cite{Han2024PEFTSurvey} situates LoRA within the broader family
+of additive, selective, and reparameterisation methods.
+
+\subsection{Training Data Curation for Code}
+
+Xue et al.~\cite{Xue2025CleanCode} demonstrate that removing code
+smells from the training set improves downstream model quality. Lee et
+al.~\cite{Lee2021Dedup} show that near-deduplication reduces
+memorisation and train-test leakage while cutting training cost.
+Bavarian et al.~\cite{Bavarian2022FIM} show that models learn
+infilling at no cost to left-to-right generation through a simple data
+transformation using sentinel tokens. WizardCoder
+\cite{Luo2023WizardCoder} demonstrates that instruction-style
+fine-tuning further lifts code generation quality.
+
+\subsection{Local Serving and Quantisation}
+
+Kurt~\cite{Kurt2026Quant} provides a unified evaluation of llama.cpp
+GGUF quantisation formats across size, speed, and quality
+trade-offs, guiding our choice of the q4\_k\_m build. Whereas code
+models are typically evaluated as cloud-hosted endpoints, Completus
+targets a fully local serving workflow.
