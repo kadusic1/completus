@@ -1,0 +1,46 @@
+% ================================================================
+\section{Conclusion}
+% ================================================================
+
+We presented Completus, an end-to-end pipeline for fine-tuning and
+locally serving a 1.5B-parameter code model on a single consumer GPU.
+Starting from CodeSearchNet, we assembled a curated bilingual training
+corpus covering Python and Go, applying deduplication, smell
+filtering, and a fill-in-the-middle data transform. One epoch of
+QLoRA fine-tuning on an 8\,GB GPU raises HumanEval pass@1 from 10.98\%
+to 42.68\% under a deployment-faithful zero-shot protocol, a 31.7
+percentage-point gain over the untuned base in the format used for
+local serving. The merged adapter is quantised to GGUF q4\_k\_m and
+registered with Ollama, providing a fully local code completion
+endpoint served entirely on consumer hardware.
+
+Future work will evaluate the Go model on HumanEval-X, explore longer
+fine-tuning schedules and larger rank budgets, and assess multi-file
+context completion in realistic, project-level scenarios.
+
+% ================================================================
+\section*{Acknowledgement}
+% ================================================================
+
+The authors thank the open-source communities behind Unsloth, Ollama,
+and the HuggingFace ecosystem.
+
+\paragraph{Data Availability.}
+Code and Modelfiles are available at
+\url{https://github.com/kadusic1/completus}. Training data is derived
+from CodeSearchNet~\cite{Husain2019CSN}, publicly available on
+HuggingFace.
+
+\paragraph{Author Contributions.}
+N.~Smajlovi\'{c}: data curation, methodology, software (evaluation,
+Windows compatibility), writing (original draft, related work).
+A.~Kadu\v{s}i\'{c}: conceptualisation, software (training, merge and
+export pipeline), validation, writing (review and editing).
+
+\paragraph{Conflict of Interest.}
+The authors declare no conflict of interest.
+
+\paragraph{AI Usage Disclosure.}
+Claude (Anthropic) was used as an AI coding assistant during
+development and for drafting portions of this manuscript. All results
+and final content were verified and approved by the authors.
