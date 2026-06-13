@@ -1,0 +1,43 @@
+% ================================================================
+\section{Introduction}
+% ================================================================
+
+Modern code language models such as GPT-4.1 and Claude Sonnet deliver
+impressive autocompletion quality, but they require a persistent
+internet connection, expose source code to third-party servers, and
+incur per-token costs that compound over a workday. These constraints
+limit adoption in regulated industries, air-gapped environments, and
+resource-constrained settings. A locally running model that completes
+code without any network call would close this gap---if it can be made
+small enough to fit on consumer hardware while remaining useful.
+
+Parameter-efficient fine-tuning (PEFT) has made it practical to
+specialise large pretrained models at a fraction of the cost of full
+fine-tuning~\cite{Hu2021LoRA, Dettmers2023QLoRA}. Quantisation
+formats such as GGUF, served through runtimes such as Ollama, allow
+merged adapter weights to run efficiently on consumer
+GPUs~\cite{Kurt2026Quant}. The combination suggests a concrete recipe:
+take a compact, permissively licensed code model, fine-tune it with
+QLoRA on domain data, merge and quantise the result, and expose it
+through a local API on the developer's own machine.
+
+This paper describes Completus, an end-to-end implementation of that
+recipe. Our contributions are:
+\begin{itemize}[leftmargin=14.4pt]
+  \item A curated preprocessing pipeline over
+        CodeSearchNet~\cite{Husain2019CSN} covering Python and Go,
+        applying deduplication, smell filtering, docstring-quality
+        filtering, and a fill-in-the-middle (FIM) transform.
+  \item A reproducible QLoRA fine-tuning procedure for
+        Qwen2.5-Coder-1.5B~\cite{Hui2024Qwen25} using a fixed-rank
+        LoRA adapter~\cite{Hu2021LoRA} that runs on an 8\,GB GPU in
+        about one to two hours per language.
+  \item An empirical evaluation showing that one epoch of fine-tuning
+        raises HumanEval pass@1 from 10.98\% to 42.68\% under a
+        deployment-faithful zero-shot protocol, a statistically
+        significant gain over the untuned base under identical
+        conditions.
+  \item A packaging step that exports the merged model to GGUF
+        q4\_k\_m and registers it with Ollama for fully local
+        inference.
+\end{itemize}
