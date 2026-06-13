@@ -1,0 +1,28 @@
+\begin{abstract}
+Large code language models achieve strong benchmark scores but require
+cloud infrastructure, raising concerns about latency, privacy, and
+offline availability. This paper presents Completus, a reproducible
+pipeline that specialises a 1.5-billion-parameter open model for local
+code autocompletion on a single consumer GPU. We fine-tune
+Qwen2.5-Coder-1.5B with a fixed-rank LoRA adapter over a 4-bit
+quantised base (QLoRA) on curated Python and Go subsets of
+CodeSearchNet. Our preprocessing pipeline applies near-deduplication,
+code-smell filtering, docstring-quality filtering, and a
+fill-in-the-middle data transformation. After training for one epoch
+on each language subset the LoRA weights are merged into the base and
+exported to the GGUF q4\_k\_m format for local serving through Ollama.
+Under a deployment-faithful zero-shot evaluation on HumanEval (greedy
+decoding, one sample per problem), the fine-tuned model reaches a
+pass@1 of 42.68\%, whereas the same base model scores only 10.98\%
+under identical conditions. Fine-tuning therefore raises pass@1 by
+31.7 percentage points in the exact format and decoding setting
+used for local serving.
+The entire workflow runs end to end on a single 8\,GB consumer GPU,
+making local code autocompletion accessible without cloud
+dependency.
+\end{abstract}
+
+\noindent\textit{Keywords}---code completion, QLoRA, fine-tuning,
+Qwen2.5-Coder, CodeSearchNet, GGUF, Ollama, fill-in-the-middle
+
+\vspace{8pt}
